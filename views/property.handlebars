@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+
+            <h1>PROPERTY INFORMATION</h1>
+            <h2>Property ID: {{property.id}}</h2>
+        </div>
+    </div>
+
+    <div class="property-information">
+        <div class="row">
+            <div class="card property-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="card-text"> <img src="{{property.photo}}" style="width: 200px"
+                                    alt="Property photo">
+                            </p>
+                            <h4 class="card-text"><b>Price: {{property.price_string}}</b></h4>
+                        </div>
+                        <div class="col-9">
+                            <p class="card-text">{{property.info}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                        </div>
+                        <div class="col-4">
+                            <p class="card-text"><b>Address:</b><br>
+                                {{property.address1}}<br>{{property.address2}}<br>{{property.postalcode}}
+                            </p>
+
+                            <p class="card-text"><b>Property Type:</b> {{property.propertype}}</p>
+                        </div>
+                        <div class="col-4">
+                            <p class="card-text"><b>Bedrooms:</b> {{property.bedrooms}}</p>
+                            <p class="card-text"><b>Bathrooms:</b> {{property.bathrooms}}</p>
+                            <p class="card-text"><b>Ownership Type:</b> {{property.ownershiptype}}</p>
+                            <p class="card-text"><b>Features:</b> {{property.ammenities}}</p>
+                            <p class="card-text"><b>Ammenities Nearby:</b> {{property.ammenitiesnearby}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="card-text"><small>createdAt: {{property.createdAt}}</small></p>
+                            <p class="card-text"><small>updatedAt: {{property.updatedAt}}</small></p>
+                        </div>
+                        <div class="col-6">
+                            <div class="property-buttons">
+                                <a href="/property/edit/{{property.id}}"><button type="button"
+                                        class="btn btn-success">Update Property ID
+                                        #{{property.id}} Lisitng Details</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+
+
+</section>

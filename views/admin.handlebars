@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+            <h3>ADMININSTRATORS</h3>
+            <h1>There are {{allOwners.length}} owners </h1>
+            <p>Click to expand each user. As administrator, you can manage clients, owners, and properties.</p>
+        </div>
+    </div>
+
+    <!--div class="alert alert-success" role="alert" id="ownersBanner">
+        OWNERS
+    </div-->
+    <div class="row justify-content-md-center" id="ownersTable">
+        <div class="col-12 panel-group" id="accordion">
+            <div class="panel panel-default">
+                {{#each allOwners}}
+                <li>
+                    <div class="row" id="user-wrapper">
+                        <div class="col-12">
+
+
+                            <div class="panel-heading">
+                                <div class="panel-title">
+
+                                    <div class="user-box">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapse{{this.id}}">
+                                                    <h1>+</h1>
+                                                </a>
+                                            </div>
+                                            <div class="col-5">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapse{{this.id}}">
+                                                    USER {{this.id}}
+                                                    <p id="username-text">{{this.firstName}} {{this.lastName}}</p>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="user-buttons">
+                                                    <a href="/owner/edit/{{this.id}}"><button type="button"
+                                                            class="btn btn-success">Edit User
+                                                            {{this.id}}</button></a>
+                                                    <button type="button" class="btn btn-danger adminDeleteOwner"
+                                                        ownerId={{this.id}}>Delete User {{this.id}}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div id="collapse{{this.id}}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    {{#each this.properties}}
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-4" id="propertyImg">
+                                            <img src={{this.photo}}>
+                                            <br>
+                                            <br>
+                                            <h4><b>Price: {{this.price_string}}</b></h4>
+                                        </div>
+
+                                        <div class="col-xs-12 col-lg-8" id="propertyDescription">
+
+                                            <p>{{this.info}}</p>
+                                            <div class="property-buttons">
+                                                <a href="/property/edit/{{this.id}}"><button type="button"
+                                                        class="btn btn-success">Edit
+                                                        Property</button></a>
+                                                <button type="button" class="btn btn-danger adminDeleteProperty"
+                                                    propId={{this.id}}>Delete Property</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <hr>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+            <h1>There are {{allClients.length}} clients </h1>
+        </div>
+    </div>
+    {{#each allClients}}
+
+    <div class="row" id="user-wrapper">
+        <div class="col-12">
+            <div class="user-box">
+                <div class="row">
+                    <div class="col-6">
+                        Client {{this.id}}
+                        <p id="username-text">{{this.firstName}} {{this.lastName}}</p>
+                    </div>
+                    <div class="col-6">
+                        <div class="user-buttons">
+                            <a href="/owner/edit/{{this.id}}"><button type="button" class="btn btn-success">Edit User
+                                    {{this.id}}</button></a>
+                            <button type="button" class="btn btn-danger adminDeleteOwner" ownerId={{this.id}}>Delete
+                                User
+                                {{this.id}}</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card-body">
+                            <div class="col-12">
+                                <p class="card-text">Username: <b>{{this.username}}</b></p>
+                                <p class="card-text">Password: <b>{{this.password}}</b></p>
+                                <p class="card-text">First name: <b>{{this.firstName}}</b></p>
+                                <p class="card-text">Last name: <b>{{this.lastName}}</b></p>
+                                <p class="card-text">Email: <b>{{this.email}}</b></p>
+                                <p class="card-text">Phone: <b>{{this.phone}}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</section>

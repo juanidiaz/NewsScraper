@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+            <h2>Edit {{owner.firstName}} {{owner.lastName}}'s Info</h2>
+        </div>
+    </div>
+
+    <div class="card owner-card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <p class="card-text">username: <input class="form-control mr-sm-2" type="text"
+                            id="propInputUsername" value="{{owner.username}}"></p>
+                    <p class="card-text">password: <input class="form-control mr-sm-2" type="text"
+                            id="propInputPassword" value="{{owner.password}}"></p>
+                    <p class="card-text">firstName: <input class="form-control mr-sm-2" type="text"
+                            id="propInputfirstName" value="{{owner.firstName}}"></p>
+                    <p class="card-text">lastName: <input class="form-control mr-sm-2" type="text"
+                            id="propInputLastName" value="{{owner.lastName}}"></p>
+                    <p class="card-text">email: <input class="form-control mr-sm-2" type="text" id="propInputEmail"
+                            value="{{owner.email}}"></p>
+                    <p class="card-text">phone: <input class="form-control mr-sm-2" type="text" id="propInputPhone"
+                            value="{{owner.phone}}"></p>
+                </div>
+                <div class="col-6">
+                    <p class="card-text">address1: <input class="form-control mr-sm-2" type="text"
+                            id="propInputAddress1" value="{{owner.address1}}"></p>
+                    <p class="card-text">address2: <input class="form-control mr-sm-2" type="text"
+                            id="propInputAddress2" value="{{owner.address2}}"></p>
+                    <p class="card-text">city: <input class="form-control mr-sm-2" type="text" id="propInputCity"
+                            value="{{owner.city}}"></p>
+                    <p class="card-text">province: <input class="form-control mr-sm-2" type="text"
+                            id="propInputProvince" value="{{owner.province}}"></p>
+                    <p class="card-text">country: <input class="form-control mr-sm-2" type="text" id="propInputCountry"
+                            value="{{owner.country}}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <small>Owner ID: <span id="idtag" data-tag="{{owner.id}}">{{owner.id}}</span></small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="owner-buttons">
+        <button class="btn btn-success my-2 my-sm-0" type="button" id="updateOwner">UPDATE</button>
+        <a href="/owner/{{owner.id}}"><button type="button" class="btn btn-danger">CANCEL</button></a>
+    </div>
+
+
+
+</section>

@@ -1,1 +1,1 @@
-# NewsScraper
+# group-project-2

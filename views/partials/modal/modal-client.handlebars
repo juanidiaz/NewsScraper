@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <img src="/images/property-pal-logo-horiz-blk.png" width="40%" height="40%" class="mr-3" alt="">
+    <h3 class="text-primary">Client login</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+<div class="modal-body">
+    <form class="form" role="form" autocomplete="off" id="formClientLogin" novalidate="" method="POST">
+        <div class="form-group">
+            <a class="float-right">New user?</a>
+
+            <label for="uname1">Username</label>
+            <input type="text" class="form-control form-control-lg" name="uname1" id="clientUsername" required="">
+            <div class="invalid-feedback">Oops, you missed this one.</div>
+        </div>
+        <div class="form-group">
+            <label id="psswdLbl">Password </label>
+            <input type="password" class="form-control form-control-lg" id="clientPassword" required=""
+                autocomplete="new-password">
+            <div class="invalid-feedback">Enter your password too!</div>
+        </div>
+        <div class="form-group py-4">
+            <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button type="submit" class="btn btn-success btn-lg float-right" id="btnClientLogin">Login</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/client/{{client.id}}"><img
+            src="/images/property-pal-logo-horiz.png"></a>
+    <a href="/"><button type="button" class="btn btn-danger topnav-btn">LOG OUT</button></a>
+
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+
+            <h1>Welcome back {{client.firstName}}!</h1>
+            <p> You can to see/edit your information as well as manage favorites.</p>
+            <a href="/client/{{client.id}}"><button type="button" class="btn btn-primary">Search properties</button></a>
+        </div>
+    </div>
+
+
+    <div class="card client-card">
+        <div class="card-body">
+            <h5 class="card-title">Account info</h5>
+            <p class="card-text">Username: <b>{{client.username}}</b></p>
+            <p class="card-text">Password: <b>{{client.password}}</b></p>
+            <p class="card-text">First name: <b>{{client.firstName}}</b></p>
+            <p class="card-text">Last name: <b>{{client.lastName}}</b></p>
+            <p class="card-text">Email: <b>{{client.email}}</b></p>
+            <p class="card-text">Phone: <b>{{client.phone}}</b></p>
+            <div>
+                <a href="/client/edit/{{client.id}}"><button type="button" class="btn btn-primary">
+                        Edit {{client.firstName}}'s Info</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="favorite-properties">
+        <div>
+            <h3>{{client.firstName}}'s Favourite Properties</h3>
+        </div>
+        {{#each favorites}}
+        <div class="row">
+            <div class="col-4" id="propertyImg">
+                <img src={{property.photo}}>
+                <br>
+                <br>
+                <h4><b>Price: {{property.price_string}}</b></h4>
+            </div>
+
+            <div class="col-8" id="propertyDescription">
+
+                <p>{{property.info}}</p>
+            </div>
+        </div>
+
+
+        <hr>
+        {{/each}}
+    </div>
+
+</section>

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+	<a class="navbar-brand" id="nav-logo-container" href="/"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+	<div class="row justify-content-md-center">
+		<div class="col-12 page-banner">
+			<h1>Create new property for owner {{owner.firstName}} {{owner.lastName}} (ID# <span id="idtag"
+					data-tag="{{owner.id}}">{{owner.id}}</span>)</h1>
+		</div>
+	</div>
+
+	<div class="card client-card">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-6">
+					<p class="card-text"><b>Price: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputPrice_string" value="{{property.price_string}}"></p>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-12">
+					<p class="card-text"><b>Property Description: </b><textarea class="form-control" rows="5"
+							id="propInputInfo">{{property.info}}</textarea></p>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-12">
+					<p class="card-text"><b>URL to Photo: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputPhoto" value="{{property.photo}}"></p>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-6">
+					<p class="card-text"><b>Address: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputAddress1" value="{{property.address1}}"></p>
+					<p class="card-text"><b>City and Province: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputAddress2" value="{{property.address2}}"></p>
+					<p class="card-text"><b>Postal Code: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputPostalCode" value="{{property.postalcode}}"></p>
+					<p class="card-text"><b>Proper Type: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputProperType" value="{{property.propertype}}"></p>
+				</div>
+				<div class="col-6">
+					<p class="card-text"><b>Bedrooms: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputBedrooms" value="{{property.bedrooms}}"></p>
+					<p class="card-text"><b>Bathrooms: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputBathrooms" value="{{property.bathrooms}}"></p>
+					<p class="card-text"><b>Ownership Type: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputOwnershipType" value="{{property.ownershiptype}}"></p>
+					<p class="card-text"><b>Features: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputAmmenities" value="{{property.ammenities}}"></p>
+					<p class="card-text"><b>Ammenities Nearby: </b><input class="form-control mr-sm-2" type="text"
+							id="propInputAmmenitiesNearby" value="{{property.ammenitiesnearby}}"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="client-buttons">
+		<button class="btn btn-success my-2 my-sm-0" type="button" id="addProperty">ADD PROPERTY</button>
+		{{!-- <a href="/property/{{property.id}}"><button type="button" class="btn btn-warning" id="updateProperty">UPDATE</button></a> --}}
+		{{!-- <a href="/property/{{property.id}}"><button type="button" class="btn btn-danger">CANCEL</button></a> --}}
+	</div>
+
+</section>

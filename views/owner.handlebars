@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+            <h1>Welcome back {{owner.firstName}} {{owner.lastName}}!</h1>
+            <p>View and update your account info and view, edit, or add properties.</p>
+        </div>
+    </div>
+
+    <div class="card client-card">
+        <div class="card-body">
+            <h5 class="card-title">Account info</h5>
+            <p class="card-text">Username: <b>{{owner.username}}</b></p>
+            <p class="card-text">Password: <b>{{owner.password}}</b></p>
+            <p class="card-text">First name: <b>{{owner.firstName}}</b></p>
+            <p class="card-text">Last name: <b>{{owner.lastName}}</b></p>
+            <p class="card-text">Email: <b>{{owner.email}}</b></p>
+            <p class="card-text">Phone: <b>{{owner.phone}}</b></p>
+            <p class="card-text">Address: <b>{{owner.address1}} {{owner.address2}}, {{owner.city}},
+                    {{owner.province}}, {{owner.country}}</b></p>
+
+            <div>
+                <a href="/owner/edit/{{owner.id}}"><button type="button" class="btn btn-primary">Edit
+                        {{owner.firstName}}'s
+                        Info</button></a>
+                <a href="/property/add/{{owner.id}}"><button type="button" class="btn btn-primary">Add New Property
+                    </button></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="favorite-properties">
+        <div>
+            <h3>Here are your {{properties.count}} properties</h3>
+        </div>
+        {{#each properties.rows}}
+        <div class="row">
+            <div class="card property-card" style="width: 100%;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title inline">Property ID: {{id}}</h5>
+                        </div>
+                    </div>
+                    <div class="row" id="propertyDescription">
+                        <div class="col-xs-12 col-lg-3">
+                            <p class="card-text"> <img src="{{photo}}" style="width: 200px" alt="Property photo">
+                            </p>
+                            <h4 class="card-text"><b>Price: {{price_string}}</b></h4>
+                        </div>
+                        <div class="col-xs-12 col-lg-9">
+                            <p class="card-text">{{info}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <p class="card-text"><b>Address:</b><br> {{address1}}<br>{{address2}}<br>{{postalcode}}</p>
+
+                            <p class="card-text"><b>Property Type:</b> {{propertype}}</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-4">
+                            <p class="card-text"><b>Bedrooms:</b> {{bedrooms}}</p>
+                            <p class="card-text"><b>Bathrooms:</b> {{bathrooms}}</p>
+                            <p class="card-text"><b>Ownership Type:</b> {{ownershiptype}}</p>
+                            <p class="card-text"><b>Features:</b> {{ammenities}}</p>
+                            <p class="card-text"><b>Ammenities Nearby:</b> {{ammenitiesnearby}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-6">
+                            <p class="card-text"><small>createdAt: {{createdAt}}</small></p>
+                            <p class="card-text"><small>updatedAt: {{updatedAt}}</small></p>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div class="property-buttons">
+                                <a href="/property/edit/{{id}}"><button type="button"
+                                        class="btn btn-success">EDIT</button></a>
+                                <button type="button" class="btn btn-danger deleteProperty"
+                                    data-tag="{{id}}">DELETE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>

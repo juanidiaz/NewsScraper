@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav justify-content-end">
+            {{#if client}}
+            <li class="nav-item">
+                <span class="text-primary">Logged as <b>{{client.username}}</b></span>
+                <a href="/client/{{client.id}}/info"><button type="button" class="btn btn-primary topnav-btn">Account info</button></a>
+                <a href="/"><button type="button" class="btn btn-danger topnav-btn">LOG OUT</button></a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <button type="button" class="btn btn-primary topnav-btn" id="clientLogIn">Log in</button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn btn-success topnav-btn" id="ownerLogIn">Owner log in</button>
+            </li>
+            <li class="nav-item">
+                <a href="/admin"><button type="button" class="btn btn-secondary topnav-btn">Administrator</button></a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<section class="container">
+    <div class="row justify-content-lg-center">
+        <div class="col-12" id="logo-container">
+            <img src="/images/property-pal-logo-stacked.png" alt="" class="mb-5 mt-5">
+        </div>
+    </div>
+    <!--new search bar-->
+
+    <div class="container" id="search-bar">
+        <form>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="card search-bar-bg">
+                        <div class="card-body">
+                            <div class="row">
+
+                                <!--keyword input-->
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input id="keyword" type="text" class="form-control"
+                                            placeholder="City, Postal Code, Keyword">
+                                    </div>
+                                </div>
+
+                                <!--property type input-->
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Property Type</option>
+                                            <option>Condo</option>
+                                            <option>House</option>
+                                            <option>Industrial</option>
+                                            <option>Vacant land</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!--price range input-->
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <select id="inputType" class="form-control">
+                                            <option selected>Price Range</option>
+                                            <option>$1-$49,999</option>
+                                            <option>$50,000-$99,999</option>
+                                            <option>$100,000-$299,999</option>
+                                            <option>$300,000-$499,999</option>
+                                            <option>$500,000-$699,999</option>
+                                            <option>$700,000-$899,000</option>
+                                            <option>$900,000+</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!--submit button-->
+                                <div class="col-md-3">
+                                    {{#if client}}
+                                    <button type="submit" id="searchClient" data-clientid="{{client.id}}" class="btn btn-dark mainSearchBtn">Search</button>
+                                    {{else}}
+                                    <button type="submit" id="search" class="btn btn-dark mainSearchBtn">Search</button>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--<div class="row justify-content-lg-center">
+        <div class="col-10">
+            <form>
+                <div class="form-row">
+                    <div class="col-7">
+                        <input id="keyword" class="form-control mr-sm-2" type="text"
+                            placeholder="Search properties by city" aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <button id="search" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-outline-light my-2 my-sm-0" id="advanced-search" type="submit">Advanced
+                            Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+</section>
+
+<div id="clientModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            {{> modal/modal-client}}
+
+        </div>
+    </div>
+</div>
+
+<div id="ownerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            {{> modal/modal-owner}}
+
+        </div>
+    </div>
+</div>

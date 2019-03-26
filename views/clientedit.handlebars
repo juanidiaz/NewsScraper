@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" id="nav-logo-container" href="/client/{{client.id}}"><img src="/images/property-pal-logo-horiz.png"></a>
+</nav>
+
+<section class="container white-bg-container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 page-banner">
+            <h2>Edit {{client.firstName}} {{client.lastName}}'s Info</h2>
+        </div>
+    </div>
+
+    <div class="card client-card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <p class="card-text">Username: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputUsername" value="{{client.username}}"></p>
+                    <p class="card-text">Password: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputPassword" value="{{client.password}}"></p>
+                </div>
+                <div class="col-6">
+                    <p class="card-text">First Name: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputfirstName" value="{{client.firstName}}"></p>
+                    <p class="card-text">Last Name: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputLastName" value="{{client.lastName}}"></p>
+                    <p class="card-text">Email: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputEmail" value="{{client.email}}"></p>
+                    <p class="card-text">Phone: <input class="form-control mr-sm-2 editClientInput" type="text"
+                            id="propInputPhone" value="{{client.phone}}"></p>
+                </div>
+            </div>
+
+
+            <small>Client ID: <span id="idtag" data-tag="{{client.id}}">{{client.id}}</span></small>
+        </div>
+    </div>
+
+    <div class="client-buttons">
+        <button class="btn btn-success my-2 my-sm-0" type="button" id="updateClient">UPDATE</button>
+        <a href="/client/{{client.id}}"><button type="button" class="btn btn-danger">CANCEL</button></a>
+    </div>
+
+</section>
