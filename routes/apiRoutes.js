@@ -72,10 +72,6 @@ module.exports = function (app) {
     });
   });
 
-  // axios.get("https://www.cbc.ca/cmlink/rss-topstories").then(function (response) {
-
-
-
   // A GET route for scraping the echoJS website
   app.get("/cbc", function (req, res) {
     // First, we grab the body of the html with axios
