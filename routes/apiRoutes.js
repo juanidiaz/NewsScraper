@@ -92,12 +92,13 @@ module.exports = function (app) {
         var result = {};
 
         // Add the info of every story, and save them as properties of the result object
-        result.title = $(this).children('title').text();
-        result.link = $(this).children('link').text();
-        result.pubDate = $(this).children('pubDate').text();
-        result.author = $(this).children('author').text();
-        result.category = $(this).children('category').text();
-        result.description = $(this).children('description').text();
+        result.title = $(this).children('title').text() || "title";
+        result.link = $(this).children('link').text() || "link";
+        result.pubDate = $(this).children('pubDate').text() || "pubDate";
+        result.author = $(this).children('author').text() || "author";
+        result.category = $(this).children('category').text() || "category";
+        result.description = $(this).children('description').text() || "description";
+        result.image = $(this).children('description').text().match(/src='(.*?)'/)[1] || "image";
 
         // Create a new News document using the `result` object built from scraping
         db.News.create(result)
