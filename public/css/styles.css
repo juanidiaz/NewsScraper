@@ -1,0 +1,28 @@
+body{
+    /* background-color: #212121 */
+    background-color: #212121
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.thumbnail{
+    margin: 5px;
+    object-fit: contain;
+}
+
+.jumbotron{
+    background-color: #2E2E2E !important
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}

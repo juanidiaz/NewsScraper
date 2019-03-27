@@ -104,7 +104,7 @@ module.exports = function (app) {
         db.News.create(result)
           .then(function (dbNews) {
             // View the added result in the console
-            // console.log(dbNews);
+            console.log(dbNews);
           })
           .catch(function (err) {
             // If an error occurred, log it

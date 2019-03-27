@@ -1,68 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>News Scraper</title>
 
-  <!-- Add favicon -->
-  <!--link rel="icon" href="/images/propertyPal02_trans.png"-->
+  <!-- FAVICON -->
+  <link rel="icon" href="./images/idiaz_white-favicon.png">
 
-  <!-- Link Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  <!-- STYLES -->
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Link Bootstrap JS, Popper.js, and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet">
   <!-- Linking my own CSS -->
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
+  <!-- SCRIPTS -->
+  <!-- Link Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js">
+  </script>
+
+  <!-- FONTS -->
   <!-- Link Font Awesome 5 -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  {{!-- jQuery confirm --}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-
-  <title>PropertyPal</title>
 </head>
 
-<body class="bg-black">
-<!---
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-      <img src="/images/propertyPal04_trans.png" width="120" height="30" class="d-inline-block align-top" alt="">
-    </a>
-    <div>
-      <button type="button" class="btn btn-primary" id="clientLogIn">Log in</button>
-      <button type="button" class="btn btn-success" id="ownerLogIn">Owner log in</button>
-      <a href="/admin"><button type="button" class="btn btn-secondary" id="adminLogIn">ADMIN</button></a>
+<body>
+
+  <header>
+    <div class="collapse red stylish-color" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="cyan-text">About</h4>
+            <p class="text-white">This site will scrape 20 of the latest news provided by CBC using node.js
+              and other packages and frameworks. The result of the scraping will be saved in a non
+              sequencial database (MongoDB)</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="cyan-text">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://github.com/juanidiaz/NewsScraper" class="text-white"><i class="fab fa-github"></i> Check out the GitHub files</a></li>
+              <li><a href="http://www.idiaz.ca" class="text-white"><i class="fas fa-globe"></i> Visit developer's site</a></li>
+              <li><a href="https://www.linkedin.com/in/juanidiaz/" class="text-white"><i class="fab fa-linkedin"></i> Follow developer in LinkedIn</a></li>
+              <li><a href="mailto:jdi@idiaz.ca" class="text-white"><i class="fas fa-envelope-open"></i> Email developer</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-
-  </nav>
--->
-
-  {{{body}}}
-
-  <!-- Footer -->
-  <div class="row" id="universal-footer">
-
-    <div class="col-12 footer-content-bottom">
-      <footer>&copy; Copyright 2019</footer>
+    <div class="navbar navbar-dark unique-color shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <img src="./images/icon.png" alt="Logo" width="30">
+          <strong class="ml-2"> News Scraper</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
     </div>
+  </header>
 
-  </div>
+  <main role="main">
 
-  <!-- Project script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"
-    integrity="sha256-xoJklEMhY9dP0n54rQEaE9VeRnBEHNSfyfHlKkr9KNk=" crossorigin="anonymous"></script>
-  <script src="/js/index.js"></script>
+    <section class="jumbotron elegant-color text-center">
+      <div class="container">
+        <img src="./images/logo_white.png" alt="Logo" width="300">
+        <p>
+          <a href="/cbc" class="btn btn-danger my-2">Go get me the NEWS!!!</a>
+          <a href="#" class="btn btn-success my-2">Clear all articles</a>
+        </p>
+      </div>
+    </section>
+
+          {{{ body }}}
+
+  </main>
+
+  <footer class="white-text elegant-color">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+      <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a
+          href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script>
+    window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  </script>
 
 </body>
 

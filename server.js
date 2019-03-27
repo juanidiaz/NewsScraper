@@ -25,7 +25,7 @@ app.use(logger("dev"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({
-    extended: true
+  extended: true
 }));
 app.use(express.json());
 
@@ -40,7 +40,7 @@ app.use(express.static("public"));
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
-    defaultLayout: "main"
+  defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 
