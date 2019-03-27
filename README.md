@@ -1,4 +1,6 @@
 # News Scraper
+![Logo](./public/images/logo.png)
+
 > **Cretaed by:**     Juan I Diaz (jdi@idiaz.ca)
 
 > **Date:**           March/April 2019
