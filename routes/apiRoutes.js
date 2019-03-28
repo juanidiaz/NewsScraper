@@ -27,6 +27,26 @@ module.exports = function (app) {
     db.News.find({})
       .then(function (dbNews) {
         // If we were able to successfully find Articles, send them back to the client
+        res.json(dbNews);
+
+        var newsObject = {
+          news: dbNews
+        };
+
+        // res.render("index", newsObject);
+      })
+      .catch(function (err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
+  });
+
+  // Retrieve SAVED articles from the NEWS collection
+  app.get("/saved", function (req, res) {
+    // Grab every document in the Articles collection
+    db.News.find({ saved: true})
+      .then(function (dbNews) {
+        // If we were able to successfully find Articles, send them back to the client
         // res.json(dbNews);
 
         var newsObject = {
@@ -60,7 +80,6 @@ module.exports = function (app) {
         res.json(err);
       });
   });
-
 
   // A GET route for scraping the echoJS website
   app.get("/scrape", function (req, res) {
@@ -152,7 +171,40 @@ module.exports = function (app) {
     });
   });
 
+  // Route for grabbing a specific Article by id, populate it with it's note
+  app.post("/article/:id", function (req, res) {
+    // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+    db.News.findOne({
+        _id: req.params.id
+      })
+      .then(function (dbArticle) {
+        // If we were able to successfully find an Article with the given id, send it back to the client
+        res.json(dbArticle);
+      })
+      .catch(function (err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
+  });
 
+  // Updating existing article based on id
+  app.post("/api/save/:id", function(req, res) {
+    var newsId = req.body.id;
 
+    db.News
+      .update(
+        {
+          saved: req.body.saved,
+        },
+        {
+          where: {
+            id: newsId
+          }
+        }
+      )
+      .then(function() {
+        res.json(newsId);
+      });
+  });
 
 };
