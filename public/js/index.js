@@ -14,9 +14,8 @@ $(document).ready(function () {
 
     var API = {
         // Get a client info
-        saveArticle: async function (editedInfo) {
+        saveArticle: function (editedInfo) {
             axios.post('/api/save/' + editedInfo.id, editedInfo).then(function () {
-                // window.location.href = "/";
                 res.render("index");
 
             });
@@ -52,21 +51,30 @@ $(document).ready(function () {
 
     // Save an article
     $(".saveArticle").on("click", function () {
-        console.log("Saving article with ID:" + $(this).data("id"));
 
-        $(this).text("SAVED").removeClass("deep-purple").addClass("green");
-        // // console.log($(this).parent());
+        var editedInfo = {
+            id: $(this).data("id"),
+            saved: true
+        };
 
-        // var editedInfo = {
-        //     id: $(this).data("id"),
-        //     saved: true
-        // };
-        // console.log(editedInfo)
-        // API.saveArticle(editedInfo);
+        console.log("Saving article with ID:" + editedInfo.id);
+
+        $.put('/save/' + editedInfo.id, editedInfo.id).then(() => {
+            window.location.reload();
+        });
+
+        // $.axios('/save/' + editedInfo.id, {
+        //     type: 'POST',  // http method
+        //     data: editedInfo,  // data to submit
+        //     success: function () {
+        //         console.log('saved successfully');
+        //     },
+        //     error: function (jqXhr, textStatus, errorMessage) {
+        //         console.log('Error' + errorMessage);
+        //     }
+        // });
 
     });
-
-
 
 
 

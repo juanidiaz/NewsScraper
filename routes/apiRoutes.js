@@ -184,7 +184,7 @@ module.exports = function (app) {
   });
 
   // Updating existing article based on id
-  app.post("/api/save/:id", function(req, res) {
+  app.post("/save/:id", function(req, res) {
     var newsId = req.body.id;
 
     db.News
