@@ -10,6 +10,19 @@
   <!-- FAVICON -->
   <link rel="icon" href="./images/idiaz_white-favicon.png">
 
+  <!-- SCRIPTS -->
+  <!-- Link Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js">
+  </script>
+
   <!-- STYLES -->
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
@@ -18,21 +31,6 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet">
   <!-- Linking my own CSS -->
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
-
-  <!-- SCRIPTS -->
-  <!-- Link Bootstrap JS, Popper.js, and jQuery -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js">
-  </script>
 
   <!-- FONTS -->
   <!-- Link Font Awesome 5 -->
@@ -56,10 +54,14 @@
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="cyan-text">Contact</h4>
             <ul class="list-unstyled">
-              <li><a href="https://github.com/juanidiaz/NewsScraper" class="text-white" target="new"><i class="fab fa-github"></i> Check out the GitHub files</a></li>
-              <li><a href="http://www.idiaz.ca" class="text-white"><i class="fas fa-globe" target="new"></i> Visit developer's site</a></li>
-              <li><a href="https://www.linkedin.com/in/juanidiaz/" class="text-white" target="new"><i class="fab fa-linkedin"></i> Follow developer in LinkedIn</a></li>
-              <li><a href="mailto:jdi@idiaz.ca" class="text-white"><i class="fas fa-envelope-open"></i> Email developer</a></li>
+              <li><a href="https://github.com/juanidiaz/NewsScraper" class="text-white" target="new"><i
+                    class="fab fa-github"></i> Check out the GitHub files</a></li>
+              <li><a href="http://www.idiaz.ca" class="text-white"><i class="fas fa-globe" target="new"></i> Visit
+                  developer's site</a></li>
+              <li><a href="https://www.linkedin.com/in/juanidiaz/" class="text-white" target="new"><i
+                    class="fab fa-linkedin"></i> Follow developer in LinkedIn</a></li>
+              <li><a href="mailto:jdi@idiaz.ca" class="text-white"><i class="fas fa-envelope-open"></i> Email
+                  developer</a></li>
             </ul>
           </div>
         </div>
@@ -85,14 +87,15 @@
       <div class="container">
         <img src="./images/logo_white.png" alt="Logo" width="300">
         <p>
-          <a href="/cbc" class="btn btn-danger my-2">Get NEW articles!!!</a>
+          {{!-- <a href="/cbc" class="btn btn-danger my-2">Get NEW articles!!!</a> --}}
+          <button class="btn btn-danger my-2" id="getNewArticles">Get NEW articles!!!</button>
           <a href="/saved" class="btn blue darken-1 my-2">Saved articles</a>
           <a href="/delete" class="btn btn-success my-2">Clear all articles</a>
         </p>
       </div>
     </section>
 
-          {{{ body }}}
+    {{{ body }}}
 
   </main>
 
@@ -104,14 +107,6 @@
       <p>Version 1.0</p>
     </div>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-  <script>
-    window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-  </script>
 
   <script src="/js/index.js"></script>
 

@@ -160,10 +160,6 @@ module.exports = function (app) {
         total = i + 1;
       });
 
-
-      // Send a message to the client
-      // res.send("CBC scrape complete!! " + total + " new stories were found.");
-      console.log('XXXXXXXXXXXXXXXXXXX')
     }).then(function () {
       // window.location.href = "/";
       res.render("index");
