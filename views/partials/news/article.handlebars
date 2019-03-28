@@ -14,8 +14,11 @@
                     <a href="{{link}}" target="new">
                         <button type="button" class="btn btn-sm indigo darken-1">Go to article</button>
                     </a>
-                    <button type="button" class="btn btn-sm indigo lighten-1 ml-2 saveArticle" data-id="{{id}}">Save article</button>
+                    {{#if saved}}
                     <button type="button" class="btn btn-sm deep-purple lighten-1 ml-2 leaveComment" data-id="{{id}}">Leave comment</button>
+                    {{else}}
+                    <button type="button" class="btn btn-sm indigo lighten-1 ml-2 saveArticle" data-id="{{id}}">Save article</button>
+                    {{/if}}
                 </div>
             </div>
             <div class="footnote mt-1 text-muted">
