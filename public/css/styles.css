@@ -12,14 +12,28 @@ body{
     user-select: none;
 }
 
+.card-body {
+    padding: 10px;
+}
+
+.card-text {
+    font-size: 1.1rem !important;
+    /* font-weight: 400; */
+}
 .thumbnail{
-    margin: 5px;
-    object-fit: contain;
+    /* margin: 5px; */
+    /* object-fit: contain; */
+    width: 100%;
 }
 
 .jumbotron{
     background-color: #2E2E2E !important
 }
+
+.footnote{
+    font-size: 12px;
+}
+
 
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {

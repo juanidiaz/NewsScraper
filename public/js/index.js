@@ -37,3 +37,16 @@
 //   // Log the results once you've looped through each of the elements found with cheerio
 //   console.log(results);
 // });
+
+// User clicks "Leave comment"
+$(".leaveComment").on("click", function() {
+    console.log("Opening comments modal for " + $(this).data("id"));
+  
+    // Display COMMENT modal
+    $("#commentModal").modal({
+      backdrop: "static",
+      keyboard: false
+    });
+  });
+  
+  

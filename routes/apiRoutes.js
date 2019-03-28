@@ -21,19 +21,46 @@ mongoose.connect(MONGODB_URI, {
 
 module.exports = function (app) {
 
-  // Retrieve data from the db
+  // Retrieve all data from the NEWS collection
   app.get("/all", function (req, res) {
     // Grab every document in the Articles collection
-    db.Article.find({})
-      .then(function (dbArticle) {
+    db.News.find({})
+      .then(function (dbNews) {
         // If we were able to successfully find Articles, send them back to the client
-        res.json(dbArticle);
+        // res.json(dbNews);
+
+        var newsObject = {
+          news: dbNews
+        };
+
+        res.render("index", newsObject);
       })
       .catch(function (err) {
         // If an error occurred, send it to the client
         res.json(err);
       });
   });
+
+  // DELETE all data from the NEWS collection
+  app.get("/delete", function (req, res) {
+    // Grab every document in the Articles collection
+    db.News.deleteMany({})
+      .then(function (dbNews) {
+        // If we were able to successfully find Articles, send them back to the client
+        // res.json(dbNews);
+
+        var newsObject = {
+          news: {}
+        };
+
+        res.render("index", newsObject);
+      })
+      .catch(function (err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
+  });
+
 
   // A GET route for scraping the echoJS website
   app.get("/scrape", function (req, res) {
@@ -114,8 +141,14 @@ module.exports = function (app) {
         total = i + 1;
       });
 
+
       // Send a message to the client
-      res.send("CBC scrape complete!! " + total + " new stories were found." );
+      // res.send("CBC scrape complete!! " + total + " new stories were found.");
+      console.log('XXXXXXXXXXXXXXXXXXX')
+    }).then(function () {
+      // window.location.href = "/";
+      res.render("index");
+
     });
   });
 

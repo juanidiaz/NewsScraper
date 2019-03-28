@@ -1,0 +1,25 @@
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <small class="text-muted">Category: <b class="pink-text">{{category}}</b></small>
+            <a href="{{link}}" target="new">
+                <img src="{{image}}" alt="" class="thumbnail">
+            </a>
+            <a href="{{link}}" target="new">
+                <p class="card-text">{{title}}</p>
+                
+            </a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group mt-2 ">
+                    <a href="{{link}}" target="new">
+                        <button type="button" class="btn btn-sm btn-cyan lighten-2">Go to story</button>
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary ml-2 leaveComment" data-id="{{id}}">Leave comment</button>
+                </div>
+            </div>
+            <div class="footnote mt-1 text-muted">
+                Author: <b class="purple-text">{{author}}</b>
+            </div>
+        </div>
+    </div>
+</div>
