@@ -15,7 +15,7 @@ $(document).ready(function () {
     var API = {
         // Get a client info
         saveArticle: async function (editedInfo) {
-            axios.post('api/save/' + editedInfo.id, editedInfo).then(function () {
+            axios.post('/api/save/' + editedInfo.id, editedInfo).then(function () {
                 // window.location.href = "/";
                 res.render("index");
 
@@ -39,11 +39,15 @@ $(document).ready(function () {
     $(".leaveComment").on("click", function () {
         console.log("Opening comments modal for " + $(this).data("id"));
 
+        currentID = $(this).data("id");
+
         // Display COMMENT modal
         $("#commentModal").modal({
             backdrop: "static",
             keyboard: false
         });
+
+        $('#idInModal').text('ID: ' + currentID);
     });
 
     // Save an article
