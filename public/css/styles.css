@@ -34,6 +34,9 @@ body{
     font-size: 12px;
 }
 
+.btn.btn-sm {
+    padding: 6px 0.6rem;
+}
 
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {

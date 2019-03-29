@@ -1,36 +1,53 @@
 $(document).ready(function () {
 
+    // Get new articles button is pressed
     $('#getNewArticles').on('click', function () {
         $.get('/cbc').then(() => {
+            // window.location.href = "/";
             window.location.reload();
         });
     })
 
+    // Show saved articles button is pressed
     $('#getSavedArticles').on('click', function () {
-        $.get('/saved').then(() => {
-            window.location.reload();
+        $('#getNewArticles').hide();
+        // $.get('/saved').then(() => {
+        window.location.href = "/saved";
+        // });
+    })
+
+    // Delete all articles button is pressed
+    $('#deleteAllArticles').on('click', function () {
+        let whereAmI = window.location.href;
+
+        $.get('/delete').then(() => {
+            window.location.href = whereAmI;
         });
     })
 
-    var API = {
-        // Get a client info
-        saveArticle: function (editedInfo) {
-            axios.post('/api/save/' + editedInfo.id, editedInfo).then(function () {
-                res.render("index");
+    // Add comment button is pressed
+    $('#addComment').on('click', function () {
 
+        let comment = $('#commentInput').val().trim();
+        console.log('xxxxxxxxxx ' + currentID)
+
+        $.ajax({
+                method: "POST",
+                url: '/comment/add',
+                data: {
+                    title: 'HERE',
+                    comment: comment,
+                    newsID: currentID
+                }
+            })
+            // With that done
+            .then(function () {
+                window.location.reload();
             });
-            // const data = await $.ajax({
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     type: "POST",
-            //     url: "api/save/" + editedInfo.id,
-            //     data: JSON.stringify(editedInfo)
-            // });
-            window.location.href = "/";
-        },
-
-    };
+            
+        $('#commentInput').val('');
+        $("#commentModal").modal('hide');
+    })
 
     var currentID = '';
 
@@ -49,7 +66,7 @@ $(document).ready(function () {
         $('#idInModal').text('ID: ' + currentID);
     });
 
-    // Save an article
+    // Save an article button is pressed
     $(".saveArticle").on("click", function () {
 
         var editedInfo = {
@@ -57,25 +74,37 @@ $(document).ready(function () {
             saved: true
         };
 
-        console.log("Saving article with ID:" + editedInfo.id);
-
-        $.put('/save/' + editedInfo.id, editedInfo.id).then(() => {
-            window.location.reload();
-        });
-
-        // $.axios('/save/' + editedInfo.id, {
-        //     type: 'POST',  // http method
-        //     data: editedInfo,  // data to submit
-        //     success: function () {
-        //         console.log('saved successfully');
-        //     },
-        //     error: function (jqXhr, textStatus, errorMessage) {
-        //         console.log('Error' + errorMessage);
-        //     }
-        // });
+        $.ajax({
+                method: "POST",
+                url: "/save/" + editedInfo.id,
+                data: editedInfo
+            })
+            // With that done
+            .then(function () {
+                window.location.reload();
+            });
 
     });
 
+    // UN-Save an article button is pressed
+    $(".unsave").on("click", function () {
+
+        var editedInfo = {
+            id: $(this).data("id"),
+            saved: false
+        };
+
+        $.ajax({
+                method: "POST",
+                url: "/save/" + editedInfo.id,
+                data: editedInfo
+            })
+            // With that done
+            .then(function () {
+                window.location.reload();
+            });
+
+    });
 
 
 });

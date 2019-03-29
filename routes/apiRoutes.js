@@ -44,13 +44,13 @@ module.exports = function (app) {
   // Retrieve SAVED articles from the NEWS collection
   app.get("/saved", function (req, res) {
     // Grab every document in the Articles collection
-    db.News.find({ saved: true})
+    db.News.find({
+        saved: true
+      })
       .then(function (dbNews) {
-        // If we were able to successfully find Articles, send them back to the client
-        // res.json(dbNews);
 
         var newsObject = {
-          news: dbNews
+          news: dbNews,
         };
 
         res.render("index", newsObject);
@@ -81,42 +81,42 @@ module.exports = function (app) {
       });
   });
 
-  // A GET route for scraping the echoJS website
-  app.get("/scrape", function (req, res) {
-    // First, we grab the body of the html with axios
-    axios.get("http://www.echojs.com/").then(function (response) {
-      // Then, we load that into cheerio and save it to $ for a shorthand selector
-      var $ = cheerio.load(response.data);
+  // // A GET route for scraping the echoJS website
+  // app.get("/scrape", function (req, res) {
+  //   // First, we grab the body of the html with axios
+  //   axios.get("http://www.echojs.com/").then(function (response) {
+  //     // Then, we load that into cheerio and save it to $ for a shorthand selector
+  //     var $ = cheerio.load(response.data);
 
-      // Now, we grab every h2 within an article tag, and do the following:
-      $("article h2").each(function (i, element) {
-        // Save an empty result object
-        var result = {};
+  //     // Now, we grab every h2 within an article tag, and do the following:
+  //     $("article h2").each(function (i, element) {
+  //       // Save an empty result object
+  //       var result = {};
 
-        // Add the text and href of every link, and save them as properties of the result object
-        result.title = $(this)
-          .children("a")
-          .text();
-        result.link = $(this)
-          .children("a")
-          .attr("href");
+  //       // Add the text and href of every link, and save them as properties of the result object
+  //       result.title = $(this)
+  //         .children("a")
+  //         .text();
+  //       result.link = $(this)
+  //         .children("a")
+  //         .attr("href");
 
-        // Create a new Article using the `result` object built from scraping
-        db.Article.create(result)
-          .then(function (dbArticle) {
-            // View the added result in the console
-            console.log(dbArticle);
-          })
-          .catch(function (err) {
-            // If an error occurred, log it
-            console.log(err);
-          });
-      });
+  //       // Create a new Article using the `result` object built from scraping
+  //       db.Article.create(result)
+  //         .then(function (dbArticle) {
+  //           // View the added result in the console
+  //           console.log(dbArticle);
+  //         })
+  //         .catch(function (err) {
+  //           // If an error occurred, log it
+  //           console.log(err);
+  //         });
+  //     });
 
-      // Send a message to the client
-      res.send("Scrape Complete");
-    });
-  });
+  //     // Send a message to the client
+  //     res.send("Scrape Complete");
+  //   });
+  // });
 
   // A GET route for scraping the echoJS website
   app.get("/cbc", function (req, res) {
@@ -184,23 +184,43 @@ module.exports = function (app) {
   });
 
   // Updating existing article based on id
-  app.post("/save/:id", function(req, res) {
-    var newsId = req.body.id;
+  app.post("/save/:id", function (req, res) {
+
+    var newsId = req.params.id;
 
     db.News
-      .update(
-        {
-          saved: req.body.saved,
-        },
-        {
-          where: {
-            id: newsId
-          }
-        }
-      )
-      .then(function() {
-        res.json(newsId);
+      .findByIdAndUpdate(req.params.id, {
+        saved: req.body.saved
+      }, {
+        new: true
+      })
+      .then(function (savedArticle) {
+
+        res.json(savedArticle);
       });
   });
+
+  // Add comment
+  app.post("/comment/add", function (req, res) {
+
+    let newComment = {
+      title: req.body.title,
+      comment: req.body.comment,
+      newsID: req.body.newsID
+    }
+
+    db.Comment.create(newComment)
+      .then(function (dbComment) {
+        // View the added result in the console
+        console.log(dbComment);
+      })
+      .catch(function (err) {
+        // If an error occurred, log it
+        console.log(err);
+      });
+
+  });
+
+
 
 };

@@ -3,21 +3,24 @@
     <h3 class="pink-text">Comments section</h3>
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 </div>
-<div>
-    <p class="orange-text accent-4" id="idInModal">ID</p>
-</div>
 <div class="modal-body">
-    <form class="form" role="form" autocomplete="off" id="formOwnerLogin" novalidate="" method="POST">
-        <div class="form-group">
+    <label for="uname1">Comment</label>
+    {{!-- <input type="text" class="form-control form-control-lg" name="uname1" id="newComment" required=""> --}}
+    <textarea class="form-control" rows="5" id="commentInput"></textarea>
+    <div class="invalid-feedback">Oops, you missed this one.</div>
 
-            <label for="uname1">Comment</label>
-            <input type="text" class="form-control form-control-lg" name="uname1" id="newComment" required="">
-            <div class="invalid-feedback">Oops, you missed this one.</div>
-        </div>
-        <div class="form-group py-4">
-            <button class="btn btn-sm grey darken-1 float-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
-            <button type="submit" class="btn btn-sm deep-purple lighten-1 float-right" id="btnOwnerLogin">Add
-                comment</button>
-        </div>
-    </form>
+</div>
+<div class="form-group py-4">
+    <button class="btn btn-sm grey darken-1 float-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-sm deep-purple lighten-1 float-right" id="addComment">Add comment</button>
+</div>
+
+    <button class="btn btn-sm grey darken-1 float-center" id="addComment">Show comments</button>
+
+<div id="allComments">
+    
+</div>
+
+<div>
+    <small class="orange-text accent-4 ml-2 mb-2" id="idInModal">ID</small>
 </div>
