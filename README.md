@@ -1,5 +1,5 @@
 # News Scraper
-![Logo](./images/logo.png)
+![Logo](./Images/logo.png)
 
 > **Cretaed by:**     Juan I Diaz (jdi@idiaz.ca)
 
@@ -19,19 +19,19 @@ This **FULL STACK** project is a news scraper that will extract 20 of the latest
 
 ## SCREENSHOTS
 `Home page with news`
-![Survey](./images/withNews.png)
+![Survey](./Images/withNews.png)
 
 `Home page with no news`
-![Home page](./images/noNews.png)
+![Home page](./Images/noNews.png)
 
 `Saving an article`
-![Home page](./images/saveArticle.png)
+![Home page](./Images/saveArticle.png)
 
 `Comments modal`
-![Survey](./images/modal.png)
+![Survey](./Images/modal.png)
 
 `JSON output for all articles`
-![Meet your match](./images/JSON.png)
+![Meet your match](./Images/JSON.png)
 
 ## BUILDING TOOLS
 - FRONT END
