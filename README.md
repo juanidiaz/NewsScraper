@@ -1,7 +1,7 @@
 # News Scraper
 ![Logo](./Images/logo.png)
 
-> **Cretaed by:**     Juan I Diaz (jdi@idiaz.ca)
+> **Cretaed by:**     [Juan I Diaz](http://www.idiaz.ca/) (jdi@idiaz.ca)
 
 > **Date:**           March/April 2019
 
@@ -37,7 +37,7 @@ This **FULL STACK** project is a news scraper that will extract 20 of the latest
 - FRONT END
     - HTML, CSS
     - Javascript and jQuery
-    - Bootstrap
+    - Bootstrap and MDBootstrap
 - BACK END
     - node.js
     - Express
