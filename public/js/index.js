@@ -10,10 +10,7 @@ $(document).ready(function () {
 
     // Show saved articles button is pressed
     $('#getSavedArticles').on('click', function () {
-        $('#getNewArticles').hide();
-        // $.get('/saved').then(() => {
         window.location.href = "/saved";
-        // });
     })
 
     // Delete all articles button is pressed
@@ -27,16 +24,13 @@ $(document).ready(function () {
 
     // Add comment button is pressed
     $('#addComment').on('click', function () {
-
-        let comment = $('#commentInput').val().trim();
-        console.log('xxxxxxxxxx ' + currentID)
-
+    
         $.ajax({
                 method: "POST",
                 url: '/comment/add',
                 data: {
-                    title: 'HERE',
-                    comment: comment,
+                    title: $('#titleInput').val().trim(),
+                    comment: $('#commentInput').val().trim(),
                     newsID: currentID
                 }
             })
@@ -44,9 +38,10 @@ $(document).ready(function () {
             .then(function () {
                 window.location.reload();
             });
-            
-        $('#commentInput').val('');
-        $("#commentModal").modal('hide');
+
+            $('#titleInput').val('');
+            $('#commentInput').val('');
+            $("#commentModal").modal('hide');
     })
 
     var currentID = '';
@@ -54,8 +49,24 @@ $(document).ready(function () {
     // User clicks "Leave comment"
     $(".leaveComment").on("click", function () {
         console.log("Opening comments modal for " + $(this).data("id"));
+        $("#allComments").html('');
 
         currentID = $(this).data("id");
+
+        $.get('/comment/' + currentID)
+            .then((comments) => {
+                console.log(comments)
+
+                comments.forEach(comment => {
+                    let $oldComment = $('<div>').addClass('alert alert-secondary alert-dismissible fade show').attr('role', 'alert').html('<strong>' + comment.title + ': </strong> ' + comment.comment).appendTo('#allComments');
+                    $('<button>').attr('type', 'button').addClass('close').attr('data-dismiss', 'alert').attr('aria-label', 'Close').html('<span class="deleteComment" aria-hidden="true" data-id=' + comment._id + '>&times;</span>').appendTo($oldComment);
+                });
+
+            }).catch(function (err) {
+                // If an error occurred, send it to the client
+                console.log(err);
+            });
+
 
         // Display COMMENT modal
         $("#commentModal").modal({
@@ -64,6 +75,18 @@ $(document).ready(function () {
         });
 
         $('#idInModal').text('ID: ' + currentID);
+    });
+
+    // Delete a comment by pressing the X button next to it
+    $("#allComments").on("click", ".deleteComment", function () {
+        console.log($(this).data("id"))
+        
+        $.get('/comment/delete/' + $(this).data("id"))
+            .catch(function (err) {
+                // If an error occurred, send it to the client
+                console.log(err);
+            });
+
     });
 
     // Save an article button is pressed
@@ -105,6 +128,7 @@ $(document).ready(function () {
             });
 
     });
+
 
 
 });

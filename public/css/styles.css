@@ -38,6 +38,12 @@ body{
     padding: 6px 0.6rem;
 }
 
+
+#allComments {
+    width: 90%;
+    align-self: center;
+}
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;

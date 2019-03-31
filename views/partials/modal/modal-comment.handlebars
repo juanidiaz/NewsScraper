@@ -4,9 +4,10 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 </div>
 <div class="modal-body">
+    <label for="uname1">Title</label>
+    <input type="text" class="form-control form-control-lg" name="uname1" id="titleInput" required="">
     <label for="uname1">Comment</label>
-    {{!-- <input type="text" class="form-control form-control-lg" name="uname1" id="newComment" required=""> --}}
-    <textarea class="form-control" rows="5" id="commentInput"></textarea>
+    <textarea class="form-control" rows="5" id="commentInput" required=""></textarea>
     <div class="invalid-feedback">Oops, you missed this one.</div>
 
 </div>
@@ -14,8 +15,6 @@
     <button class="btn btn-sm grey darken-1 float-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
     <button class="btn btn-sm deep-purple lighten-1 float-right" id="addComment">Add comment</button>
 </div>
-
-    <button class="btn btn-sm grey darken-1 float-center" id="addComment">Show comments</button>
 
 <div id="allComments">
     
